@@ -2,10 +2,13 @@ public class FileDemo{
   public static void main(String[] args){
     File file = new File("D:\\");
     
-    String[] strArray = file.List();
-    for(String[] str : strArray){
-      //System.out.println(str.matches(reg));
-      str.matches();
+    File[] fileArray = file.List();
+    for(File file : fileArray){
+      //System.out.println(file.matches(reg));
+      if(file.isFile()){
+        if(file.getName().endWith(".jpg")){
+          syso(file.getName());
+      }
     }
   }
 }
