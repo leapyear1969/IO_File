@@ -1,0 +1,68 @@
+package FileLearn;
+
+import java.io.File;
+import java.io.IOException;
+
+/*
+ * 
+ *找出d盘下所有的 .Java 文件，拷贝至 c:\jad 目录下，并将所有文件的类型由.java 修改为.jad 。
+ *	分析：
+ *			1.封装File路径
+ *			2.创造File数组存放路径中的值
+ *			3.遍历数组中的文件
+ *			4.判断文件
+ *							判断文件或者文件夹
+ *							判断文件结尾
+ *			5.拷贝至新的目录下
+ *			6.改名
+ *			7.遍历
+ */
+public class FileDemo {
+    public static void main(String[] args) {
+        // 封装路径
+        File srcfile = new File("D:\\");
+        // 创造路径中的所有值的对象
+        File[] file = srcfile.listFiles();
+
+        // 判断h:\jad是否存在
+        // public boolean exists()
+//        File pathCFile = new File("D:\\Test\\jad");
+//        if (!pathCFile.exists()) {
+//            pathCFile.mkdir();
+//        }
+
+        // 创造并且遍历数组中的文件对象
+        for (File f : file) {
+            if (f.isFile()) {
+                if (f.getName().endsWith(".java")) {
+                    // System.out.println(f);
+                    // renameTo
+                    // public boolean renameTo(File dest)
+                    // public int lastIndexOf(String str)
+
+                    // 获取索引
+                    // f.toString()
+                     int startIndex = 0;
+                     int endIndex = f.getName().lastIndexOf("j");
+                    // System.out.println(index);
+                    // public String substring(int beginIndex)
+                    // String name = f.getName().substring(index);
+                    // System.out.println(name);
+                    String name = f.getName().substring(startIndex, endIndex).concat("jar");
+                    //System.out.println(name);
+                    
+                    
+                    //构造器有问题
+                    //public File(String parent, String child)
+                    /**
+                     * public File(File parent, String child)
+                     * 根据parent 抽象路径名和 child 路径名字符串创建一个新 File 实例。 
+                     * 
+                     */
+                    File newfile = new File("D:\\Test\\jad",name);//路径+名字实现了结果！
+                    f.renameTo(newfile);
+                }
+            }
+        }
+    }
+}
