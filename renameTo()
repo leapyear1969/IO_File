@@ -1,0 +1,40 @@
+public class Rename{
+  public static void main(String[] args){
+    File srcfile = new File("D:\\baimeidaxia");
+    
+    File[] fileArray = srcfile.listFiles();
+    for(File file : fileArray){
+      if(file.isFile()){
+        File newFile = new File("D:\\baimeidaxia");
+        str.reNameTo(new);
+      }
+    }
+  }
+}
+
+
+//找出d盘下所有的 .Java 文件, cut 至 c:\jad 目录下，并将所有文件的类型由.java 修改为.jad
+
+
+public class Remove{
+  public static void main(String[] args){
+    //create File Path
+    File srcFile = new File("D:\\");
+    
+    File[] file = srcFile.listFile();
+    
+    //bianli
+    for(File f : file){
+      if(f.isFile()){
+        if(f.getName().endWith(".Java")){
+           File newFile = new File("c:\\jad");
+           file.reNameTo(newFile.f)
+        }
+      }
+    }
+    
+    
+    
+    
+  }
+}
